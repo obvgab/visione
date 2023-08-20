@@ -4,16 +4,24 @@
 //  
 
 import SwiftUI
+import AVFoundation
 
 struct ContentView: View {
+    let session = VideoSession()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        VideoPreview(session: session)
+            .task(priority: .background) {
+                let videoInputs = await session.listVideoInputs()
+                let audioInputs = await session.listAudioInputs()
+                
+                if let externalVideo = videoInputs.first, let externalVideoInput = try? AVCaptureDeviceInput(device: externalVideo),
+                   let externalAudio = audioInputs.first, let externalAudioInput = try? AVCaptureDeviceInput(device: externalAudio) {
+                    session.addInput(externalVideoInput).addInput(externalAudioInput).establishRotationCoordinator(on: externalVideo).unflipAllConnections()
+                }
+                
+                await session.startRunnning()
+            }
     }
 }
 

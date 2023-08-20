@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0262FE402A8BFC18004B291C /* VideoPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0262FE3F2A8BFC18004B291C /* VideoPreview.swift */; };
 		02D51F262A8AD23800F74946 /* VisioneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D51F252A8AD23800F74946 /* VisioneApp.swift */; };
 		02D51F282A8AD23800F74946 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D51F272A8AD23800F74946 /* ContentView.swift */; };
 		02D51F2A2A8AD23B00F74946 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02D51F292A8AD23B00F74946 /* Assets.xcassets */; };
@@ -14,12 +15,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0262FE3F2A8BFC18004B291C /* VideoPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPreview.swift; sourceTree = "<group>"; };
 		02D51F222A8AD23800F74946 /* Visione.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Visione.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02D51F252A8AD23800F74946 /* VisioneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisioneApp.swift; sourceTree = "<group>"; };
 		02D51F272A8AD23800F74946 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		02D51F292A8AD23B00F74946 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		02D51F2B2A8AD23B00F74946 /* Visione.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Visione.entitlements; sourceTree = "<group>"; };
 		02D51F2D2A8AD23B00F74946 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		02D51F342A8AD28800F74946 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,11 +55,13 @@
 		02D51F242A8AD23800F74946 /* Visione */ = {
 			isa = PBXGroup;
 			children = (
+				02D51F342A8AD28800F74946 /* Info.plist */,
 				02D51F252A8AD23800F74946 /* VisioneApp.swift */,
 				02D51F272A8AD23800F74946 /* ContentView.swift */,
 				02D51F292A8AD23B00F74946 /* Assets.xcassets */,
 				02D51F2B2A8AD23B00F74946 /* Visione.entitlements */,
 				02D51F2C2A8AD23B00F74946 /* Preview Content */,
+				0262FE3F2A8BFC18004B291C /* VideoPreview.swift */,
 			);
 			path = Visione;
 			sourceTree = "<group>";
@@ -141,6 +146,7 @@
 			files = (
 				02D51F282A8AD23800F74946 /* ContentView.swift in Sources */,
 				02D51F262A8AD23800F74946 /* VisioneApp.swift in Sources */,
+				0262FE402A8BFC18004B291C /* VideoPreview.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +273,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Visione/Visione.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Visione/Preview Content\"";
@@ -274,6 +281,10 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Visione/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.video";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Accept incoming content from a USB-C adapter or from the built-in cameras";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Record audio input from content outside of video playback";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -289,8 +300,9 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ai.binarysky.Visione;
+				PRODUCT_BUNDLE_IDENTIFIER = ai.binarysky.VisioneStream;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -305,6 +317,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Visione/Visione.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Visione/Preview Content\"";
@@ -312,6 +325,10 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Visione/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.video";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Accept incoming content from a USB-C adapter or from the built-in cameras";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Record audio input from content outside of video playback";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -327,8 +344,9 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ai.binarysky.Visione;
+				PRODUCT_BUNDLE_IDENTIFIER = ai.binarysky.VisioneStream;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;

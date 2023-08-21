@@ -10,11 +10,8 @@ import SwiftUI
 struct VideoSession {
     let gravity: AVLayerVideoGravity // Video input
     let previewLayer: AVCaptureVideoPreviewLayer
-    private var session: AVCaptureSession { previewLayer.session! }
-    private var coordinator = RotationCoordinator()
-    
-    let audioEngine = AVAudioEngine()
-    let audioNode = AVAudioNode()
+    var session: AVCaptureSession { previewLayer.session! }
+    var coordinator = RotationCoordinator()
   
     class RotationCoordinator { // Rotation Observers
         var instances: [AVCaptureDevice.RotationCoordinator] = []
@@ -24,15 +21,6 @@ struct VideoSession {
     init(with session: AVCaptureSession = AVCaptureSession(), gravity: AVLayerVideoGravity = .resizeAspect) {
         self.gravity = gravity
         self.previewLayer = AVCaptureVideoPreviewLayer(session: session)
-        
-        audioEngine.attach(audioNode)
-        audioEngine.connect(audioNode, to: audioEngine.mainMixerNode, format: nil)
-        
-        do {
-            try AVAudioSession.sharedInstance().setCategory(.playAndRecord)
-            try AVAudioSession.sharedInstance().setActive(true)
-            try audioEngine.start()
-        } catch { print("Add audio unsupported popup here") }
     }
     
     // exported functions
@@ -71,14 +59,12 @@ struct VideoSession {
             connection.automaticallyAdjustsVideoMirroring = false
             connection.isVideoMirrored = false
         }
-        
         return self
     }
     
     func listVideoInputs() async -> [AVCaptureDevice] {
         guard await ensurePermissions() else { return [] }
         
-        // Figure out how to process SCStream as AVCapture
         return AVCaptureDevice.DiscoverySession(deviceTypes: [.external], mediaType: .video, position: .unspecified).devices
     }
     

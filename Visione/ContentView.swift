@@ -8,6 +8,7 @@ import AVFoundation
 
 struct ContentView: View {
     let session = VideoSession()
+    let recorder = VideoSession()
     let audioEngine = AVAudioEngine()
     
     var body: some View {
